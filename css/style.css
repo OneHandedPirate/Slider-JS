@@ -1,0 +1,77 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: linear-gradient(to top right, hotpink, orange);
+}
+
+#slider {
+    display: flex;
+    width: 600px;
+    height: 400px;
+    justify-content: space-between;
+    transition-duration: .3s;
+    transition-timing-function: ease-in-out;
+    border-radius: 30px;
+    box-shadow: 0 0 30px black;
+    background-position: center;
+}
+
+.arrow {
+    display: flex;
+    width: 50px;
+    height: 80px;
+    background-color: transparent;
+    opacity: .6;
+    align-self: center;
+    transition-duration: .5s;
+    justify-content: center;
+    border-radius: 0 20px 20px 0;
+}
+
+.arrow:hover {
+    transition-duration: .5s;
+    opacity: .6;
+    cursor: pointer;
+    background-color: black;
+}
+
+.arrow:active {
+    opacity: .8;
+    background-color: black;
+}
+
+.right {
+    justify-self: right;
+    border-radius: 20px 0 0 20px;
+}
+
+.arrow_img {
+    align-self: center;
+    opacity: 1;
+    width: 30px;
+    height: 50px;
+}
+
+.left_arrow {
+    transform: rotate(180deg);
+}
+
+.round {
+    width: 20px;
+    height: 20px;
+    border: 1px solid black;
+    border-radius: 50%;
+    background: black;
+    opacity: .5;
+    margin: 10px 4px;
+    transition-duration: .3s;
+    box-shadow: 0 3px 5px black;
+}
+
+.round:hover {
+    cursor: pointer;
+}
+
