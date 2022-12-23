@@ -19,15 +19,13 @@
 }
 
 .arrow {
-    display: flex;
+    text-align: center;
     width: 45px;
     height: 65px;
     background-color: transparent;
     opacity: .8;
     align-self: center;
     transition-duration: .5s;
-    align-content: center;
-    justify-content: center;
     border-radius: 0 15px 15px 0;
     color: black;
     font-size: 45px;
@@ -75,11 +73,12 @@
     border-radius: 20px;
 }
 
-.loading {
-    z-index: -1;
-    color: black;
-    font-size: 70px;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    text-shadow: 0 0 20px gray;
-    margin-top: 160px;
+.hidden {
+    position:absolute;
+    opacity: 0;
+}
+
+.img {
+    transition-duration: .3s;
+    transition-timing-function: ease;
 }

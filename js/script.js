@@ -11,35 +11,42 @@ let images = [
     './assets/8.webp',
 ]
 
-
 let image_number = 0;
+let slider = document.getElementById('slider')
+
+for (let i = 0; i < images.length; i++) {
+    let image = document.createElement('img')
+    image.className = 'img hidden'
+    image.src = images[i]
+    slider.append(image)
+}
 
 let left = document.createElement('div');
 left.className = 'arrow left'
-slider.prepend(left)
+left.innerHTML = '&#10094;'
+slider.append(left)
+
 let right = document.createElement('div');
 right.className = 'arrow right'
-slider.append(right)
-left.innerHTML = '&#10094;'
 right.innerHTML = '&#10095;'
+slider.append(right)
+
 let bar = document.createElement('nav');
 bar.style.display = 'flex';
-
 for (let i = 0; i < images.length; i++) {
     bar.insertAdjacentHTML('afterbegin', '<div class="round"></div>');
 }
-
 slider.after(bar);
 
 let dots = document.getElementsByClassName('round')
-dots[image_number].className += " active"
+let imgs = document.getElementsByClassName('img')
 
-let img = document.getElementsByClassName('img')[0]
-img.src = `${images[image_number]}`
+dots[image_number].className += " active"
+imgs[image_number].className = imgs[image_number].className.replace(' hidden', '')
 
 function mutateImage(event) {
     dots[image_number].className = dots[image_number].className.replace(" active", "")
-
+    imgs[image_number].className += ' hidden'
     if (event.key === 'ArrowLeft' || event.key === 'a' || event.target === left) {
         image_number--;
     } else {
@@ -60,7 +67,7 @@ function mutateImage(event) {
         }
     }
     dots[image_number].className += ' active';
-    img.src = `${images[image_number]}`
+    imgs[image_number].className = imgs[image_number].className.replace(' hidden', '')
     event.stopPropagation();
 }
 
