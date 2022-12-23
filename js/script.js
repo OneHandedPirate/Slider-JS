@@ -13,13 +13,14 @@ let images = [
 
 let image_number = 0;
 
-let slider = document.getElementById('slider');
-let left = document.getElementsByClassName('arrow')[0];
-let right = document.getElementsByClassName('arrow')[1];
-right.innerHTML = '<img class="arrow_img" src="./assets/arrow.png" alt="arrow">';
-left.innerHTML = '<img class="arrow_img left_arrow" src="./assets/arrow.png" alt="arrow">';
-
-
+let left = document.createElement('div');
+left.className = 'arrow left'
+slider.prepend(left)
+let right = document.createElement('div');
+right.className = 'arrow right'
+slider.append(right)
+left.innerHTML = '&#10094;'
+right.innerHTML = '&#10095;'
 let bar = document.createElement('div');
 bar.className = 'bar';
 bar.style.display = 'flex';
@@ -29,16 +30,14 @@ for (let i = 0; i < images.length; i++) {
 
 slider.after(bar);
 
-bar.children[image_number].style.opacity = '0.8';
-bar.children[image_number].style.width = '40px';
-bar.children[image_number].style.borderRadius = '20px';
+let dots = document.getElementsByClassName('round')
+
+dots[image_number].className += " active"
 
 slider.style.backgroundImage = `url(${images[image_number]})`;
 
 function mutateImage(event) {
-    bar.children[image_number].style.opacity = '0.5';
-    bar.children[image_number].style.width = '20px';
-    bar.children[image_number].style.borderRadius = '50%';
+    dots[image_number].className = dots[image_number].className.replace("active", "")
     if (event.target === left.firstChild || event.key === 'ArrowLeft' || event.key === 'a' || event.target === left) {
         image_number--;
     } else {
@@ -57,17 +56,16 @@ function mutateImage(event) {
             break;
         }
     }
-
+    dots[image_number].className += ' active';
     slider.style.backgroundImage = `url(${images[image_number]})`;
-    bar.children[image_number].style.borderRadius = '20px';
-    bar.children[image_number].style.opacity = '0.7';
-    bar.children[image_number].style.width = '40px';
     event.stopPropagation();
 }
 
 slider.addEventListener('click', mutateImage);
 document.addEventListener('keydown', mutateImage);
 bar.addEventListener('click', mutateImage);
+
+
 
 
 

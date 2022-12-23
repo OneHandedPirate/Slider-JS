@@ -8,6 +8,7 @@
 }
 
 #slider {
+    overflow:hidden;
     display: flex;
     width: 600px;
     height: 400px;
@@ -21,14 +22,18 @@
 
 .arrow {
     display: flex;
-    width: 50px;
-    height: 80px;
+    width: 45px;
+    height: 65px;
     background-color: transparent;
-    opacity: .6;
+    opacity: .8;
     align-self: center;
     transition-duration: .5s;
+    align-content: center;
     justify-content: center;
-    border-radius: 0 20px 20px 0;
+    border-radius: 0 15px 15px 0;
+    color: black;
+    font-size: 45px;
+    font-weight: bold;
 }
 
 .arrow:hover {
@@ -36,27 +41,17 @@
     opacity: .6;
     cursor: pointer;
     background-color: black;
+    color: white;
 }
 
 .arrow:active {
-    opacity: .8;
-    background-color: black;
+    opacity: 1;
 }
 
 .right {
     justify-self: right;
     border-radius: 20px 0 0 20px;
-}
-
-.arrow_img {
-    align-self: center;
-    opacity: 1;
-    width: 30px;
-    height: 50px;
-}
-
-.left_arrow {
-    transform: rotate(180deg);
+    right: 0;
 }
 
 .round {
@@ -75,3 +70,8 @@
     cursor: pointer;
 }
 
+.active {
+    opacity: .8;
+    width: 40px;
+    border-radius: 20px;
+}
