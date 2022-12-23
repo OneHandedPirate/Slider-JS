@@ -11,6 +11,7 @@ let images = [
     './assets/8.webp',
 ]
 
+
 let image_number = 0;
 
 let left = document.createElement('div');
@@ -21,28 +22,30 @@ right.className = 'arrow right'
 slider.append(right)
 left.innerHTML = '&#10094;'
 right.innerHTML = '&#10095;'
-let bar = document.createElement('div');
-bar.className = 'bar';
+let bar = document.createElement('nav');
 bar.style.display = 'flex';
+
 for (let i = 0; i < images.length; i++) {
-    bar.insertAdjacentHTML('afterbegin', '<div class="round"></div>')
+    bar.insertAdjacentHTML('afterbegin', '<div class="round"></div>');
 }
 
 slider.after(bar);
 
 let dots = document.getElementsByClassName('round')
-
 dots[image_number].className += " active"
 
-slider.style.backgroundImage = `url(${images[image_number]})`;
+let img = document.getElementsByClassName('img')[0]
+img.src = `${images[image_number]}`
 
 function mutateImage(event) {
-    dots[image_number].className = dots[image_number].className.replace("active", "")
-    if (event.target === left.firstChild || event.key === 'ArrowLeft' || event.key === 'a' || event.target === left) {
+    dots[image_number].className = dots[image_number].className.replace(" active", "")
+
+    if (event.key === 'ArrowLeft' || event.key === 'a' || event.target === left) {
         image_number--;
     } else {
         image_number++;
     }
+
     if (image_number < 0) {
         image_number = images.length - 1;
     }
@@ -57,7 +60,7 @@ function mutateImage(event) {
         }
     }
     dots[image_number].className += ' active';
-    slider.style.backgroundImage = `url(${images[image_number]})`;
+    img.src = `${images[image_number]}`
     event.stopPropagation();
 }
 
