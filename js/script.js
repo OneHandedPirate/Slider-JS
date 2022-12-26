@@ -71,10 +71,23 @@ function mutateImage(event) {
     event.stopPropagation();
 }
 
+let loaderDiv = document.createElement('div')
+loaderDiv.className = 'loader'
+loaderDiv.innerText = 'Loading...'
+function loader() {
+    slider.prepend(loaderDiv)
+}
+
+function unload() {
+    loaderDiv.className = 'hidden'
+}
+
+
 slider.addEventListener('click', mutateImage);
 document.addEventListener('keydown', mutateImage);
 bar.addEventListener('click', mutateImage);
-
+document.addEventListener('DOMContentLoaded', loader)
+window.addEventListener('load', unload)
 
 
 
