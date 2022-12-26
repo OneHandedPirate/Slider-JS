@@ -96,7 +96,7 @@
     color: white;
     font-family: Arial;
     animation-name: widen;
-    animation-duration: 3s;
+    animation-duration: 2s;
     animation-fill-mode: forwards;
 }
 
