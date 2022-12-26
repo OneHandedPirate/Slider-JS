@@ -84,10 +84,34 @@
 }
 
 .loader {
-    opacity: .5;
+    display: flex;
+    opacity: .7;
     background-color: black;
     position: absolute;
     width: 100%;
     height: 100%;
+    font-size: 65px;
+    /*text-align: center;*/
+    justify-content: center;
+    align-content: center;
+    color: white;
+    font-family: Arial;
+    animation-name: widen;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+}
 
+.l {
+    padding-left: 15px;
+    padding-top: 150px;
+}
+
+@keyframes widen {
+    0% {
+        letter-spacing: normal;
+    }
+
+    100% {
+        letter-spacing: 25px;
+    }
 }

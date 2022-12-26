@@ -71,15 +71,17 @@ function mutateImage(event) {
     event.stopPropagation();
 }
 
+// Experimental
+
 let loaderDiv = document.createElement('div')
 loaderDiv.className = 'loader'
-loaderDiv.innerText = 'Loading...'
+loaderDiv.innerHTML = '<span class="l">LOADING</span>'
 function loader() {
     slider.prepend(loaderDiv)
 }
 
 function unload() {
-    loaderDiv.className = 'hidden'
+    loaderDiv.remove()
 }
 
 
